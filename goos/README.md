@@ -13,3 +13,4 @@ By Steve Freeman, Nat Pryce
 In this part we introduce two core principles: continuous incremental development and expressive code
 
 * [Chapter 4 - Kick-Starting the Test-Driven Cycle](chapter-4.md)
+* [Chapter 4 - Maintaining the Test-Driven Cycle](chapter-5.md)
