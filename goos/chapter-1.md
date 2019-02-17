@@ -69,5 +69,35 @@ Many of the steps might be fiddly and error-prone, so end-to-end build cycle is 
 
 A system is *deployable* when the acceptance test all pass.
 
+## Levels of Testing
+We build a hierarchy of tests that correspond to some of the nested feedback loops we described above:
+
+* **Acceptance**: does the whole system work?
+* **Integration**: does our code work against code we can't change?
+* **Unit**: do our object do the right thing, are they convenient to work with?
+
+The important thing is to ve clear about our intentions. 
+
+* We use "acceptance tests" to help us, with the domain experts, understand and agree on what we are going to build next.
+
+* We use the term "integration tests" to refer to the tests that check how some of our code works with code from outside the theam that we can't change.
 
 
+## External and Internal Quality
+There's another way of looking at what the tests can tell us about a system. We can make  distinction between external and internal quality: 
+
+* *External quality* is how well the system meets the needs of its customers and users (is it functional, reliable,, available, responsive, etc.)
+* *internal qualiry* is how well it meets the needs of its developers and administrator (is it easy to understand, easy to change etc.)
+
+Everyone can understand the point of exernal quality; it's usually part of the contract to build.
+
+Unit tests don't give us enough confidence that the system as a whole works. 
+
+For a class to be easy to unit-test, the class must have explicit dependencies that can easily be substituted and clear responsibilities that can esasily be invoked and veriried. In software engineering terms, that means that the code must be *loosely coupled* and *highly cohesive* -- in other workds, well designed.
+
+When we've got this wrong -- when a class, for example, is tightly coupled to distan parts of the system, has implicit dependencies, or has too many o unclear responsibilities -- we find unit tests difficult to write or understand, so writing a test first gives us valuable, immediate feedback about our design. Like everyone, we're tempted not to write test when our code makes it difficult, but we try to resiste. We use such difficulties as an opportunity to investigare why the test is hard to write and refactor the code to improve its structure. We call this **listening to the tests**.
+
+### Couplign and Cohesion
+
+* Elements are *coupled* if a change in one forces a change in the other.
+* An element's *cohesion* is a measure of whether its responbilities form a meaningful unit. For example, ,a class that parsesot dates and URLs is not coherent, because they're unrelated concepts. A the other exteme, a class that parses only the punctuation in a URL is unlikely to be coherent, because it doesn't represent a whole concept.
