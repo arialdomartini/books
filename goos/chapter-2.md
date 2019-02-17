@@ -42,4 +42,70 @@ An object is an implementation of one or more *roles*. A role is a set of relate
 ## Tell, Don't Ask (Law of Demeter)
 Calling objexts should describe what it wants *in terms of the role* that its neighbor plays, and let the called object decide how to make that happen.
 
-Objects make thei decisions based only on the information they hold internally or that which came with the triggering messsage; they avoid navigating to other objects to make things happen.
+Objects make their decisions based only on the information they hold internally or that which came with the triggering messsage; they avoid navigating to other objects to make things happen.
+
+Followed consistently, this style produces more flexible code because it's easy to swap object that play the same role.
+
+When we don't follow the style, we can end up with what's known as *train wreck* code, where a series of getters is chaned together like the carriages in a train.
+
+```java
+((EditSaveCustomizer) master.getModelisable()
+  .getDockablePanel())
+    .getCustomizer())
+      .getSaveItem().getEnabled(Boolean.FALSE.booleanValue())
+```
+
+can be reduced to:
+
+```java
+master.allowSavingOfCustomisations()
+```
+
+We've reduced the risk that a design change might cause ripples in remote parts of the codebase.
+
+### But Sometimes Ask
+```csharp
+public class Train
+{
+    private readonly List<Carriage> _carriages [..];
+    private int _percentReservedBarrier = 70;
+    
+    public void ReserveSeats(ReservationRequest request)
+    {
+        foreach(var carriage in carriages)
+        {
+            if(carriage.Seats.PercentReserved < _percentReservedBarrier)
+            {
+                request.reserveSeatsIn(carriage);
+                return;
+            }
+        }
+        request.CannotFindSeats();
+    }_
+}
+```
+
+We shouln't expose the internal structure of `Carriage` to implement this. Instead, we should ask the question we really want aswered, instead of asking for the information to help us figure our the answer ourselves:
+
+```csharp
+public void ReserveSeats(ReservationRequest request)
+{
+    foreach(var carriage in carriages)
+    {
+        if(carriage.HasSeatsAvailableWIthing(_percentReservedBarrier))
+            request.ReserveSeatsIn(carriage);
+            return;
+    }
+    request.CannotFindSeats();
+}
+```
+
+## Unit-Testing the Collaborating Objects
+We can change the way we approach TDD. We try to test the target object and we already know what its neighbors look like In practice those collaborators don't need to exist when we're writing a unit test.
+
+We can use the tet to help us tease out the supporting roles our objects needs, defined as interfaces, and fill in real implementations as we develop the rest of the system. We call this *interface discovery*.
+
+## Support for TDD with Mock Objects
+To support this style of test-driven programming, we need to create mock instances of the neighboring objects, define expectations on how they're called and then check them.
+
+We use the term *mockery* for the object that holds the context of a test.
