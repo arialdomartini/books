@@ -12,3 +12,4 @@ By Noah J. Goldstein, Steve J. Martin and Robert B. Cialdini
 * [25. When can the right way be the wrong way](25.md)
 * [26. What's the best way to turn a weakness into a strength](26.md)
 * [27. Which faults unlock people's vaults?](27.md)
+* [28. When is it right to admit that you were wrong?](28.md)
