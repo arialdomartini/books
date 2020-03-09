@@ -14,3 +14,5 @@ By Noah J. Goldstein, Steve J. Martin and Robert B. Cialdini
 * [27. Which faults unlock people's vaults?](27.md)
 * [28. When is it right to admit that you were wrong?](28.md)
 * [29. How can similarities make a difference?](29.md)
+* 30. When is your name your game? Skipped, it was a very stupid argument.
+* [31. What tips should we take from those who get them?](31.md)
