@@ -13,3 +13,4 @@ By Noah J. Goldstein, Steve J. Martin and Robert B. Cialdini
 * [26. What's the best way to turn a weakness into a strength](26.md)
 * [27. Which faults unlock people's vaults?](27.md)
 * [28. When is it right to admit that you were wrong?](28.md)
+* [29. How can similarities make a difference?](29.md)
