@@ -16,3 +16,4 @@ By Noah J. Goldstein, Steve J. Martin and Robert B. Cialdini
 * [29. How can similarities make a difference?](29.md)
 * 30. When is your name your game? Skipped, it was a very stupid argument.
 * [31. What tips should we take from those who get them?](31.md)
+* [32. What kind of smile can make the world smile back?](32.md)
