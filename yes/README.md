@@ -19,3 +19,4 @@ By Noah J. Goldstein, Steve J. Martin and Robert B. Cialdini
 * [32. What kind of smile can make the world smile back?](32.md)
 * [33. When is a loser a winner?](33.md)
 * [34. What can you gain from loss?](34.md)
+* [Which single world will strengthen your persuasion attempts?](35.md)
